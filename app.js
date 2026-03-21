@@ -6,6 +6,10 @@ const routes = require('./routes');
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
 
+const client = new Client({
+  connectionString: process.env.DATABASE_URL
+});
+
 app.use(cookieParser());
 app.use(cors({
   origin: "http://localhost:3000",   // your Next.js frontend
