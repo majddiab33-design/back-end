@@ -4,6 +4,7 @@ const app = express()
 const PORT = process.env.PORT ||5000 ;
 const routes = require('./routes');
 const cors = require("cors");
+const { Client } = require('pg');
 const cookieParser = require("cookie-parser");
 
 const client = new Client({
