@@ -1,15 +1,24 @@
+const { Client } = require('pg');
 const express = require('express')
 require("dotenv").config();
 const app = express()
-const PORT = process.env.PORT ||5000 ;
+const PORT = process.env.PORT || 5000;
 const routes = require('./routes');
 const cors = require("cors");
-const { Client } = require('pg');
 const cookieParser = require("cookie-parser");
 
 const client = new Client({
-  connectionString: process.env.DATABASE_URL
+  connectionString: process.env.DATABASE_URL,
+  ssl: { rejectUnauthorized: false }
 });
+
+client.connect()
+  .then(() => {
+    console.log("Connected to Neon");
+    app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+  })
+  .catch(err => console.error("DB connection error:", err));
+
 
 app.use(cookieParser());
 app.use(cors({
