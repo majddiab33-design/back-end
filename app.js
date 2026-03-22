@@ -2,6 +2,7 @@ const { Client } = require('pg');
 const express = require('express')
 require("dotenv").config();
 const cors = require("cors");
+const app = express()
 
 app.use(cors({
   origin: [
@@ -12,7 +13,7 @@ app.use(cors({
   credentials: true
 }));
 
-const app = express()
+
 const PORT = process.env.PORT || 5000;
 const routes = require('./routes');
 const cookieParser = require("cookie-parser");
