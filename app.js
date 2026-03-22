@@ -4,17 +4,17 @@ require("dotenv").config();
 const cors = require("cors");
 const app = express()
 
+const cors = require("cors");
+
 app.use(cors({
-  origin: (origin, callback) => {
-    if (!origin || origin.endsWith(".vercel.app")) {
-      callback(null, true);
-    } else {
-      callback(new Error("Not allowed by CORS"));
-    }
-  },
+  origin: [
+    "https://client-hzznakmce-majddiab33-9273s-projects.vercel.app"
+  ],
+  methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
 }));
 
+app.use(express.json());
 
 
 const PORT = process.env.PORT || 5000;
