@@ -6,8 +6,7 @@ const app = express()
 
 app.use(cors({
   origin: [
-    "https://client-9xzg9sbn8k-majddiab33-9273s-projects.vercel.app",
-    "http://localhost:5173"
+    "client-oa1j0htm1-majddiab33-9273s-projects.vercel.app",
   ],
   methods: "GET,POST,PUT,DELETE",
   credentials: true
