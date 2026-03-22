@@ -5,8 +5,13 @@ const pool = new Pool({
   ssl: { rejectUnauthorized: false }
 });
 
+
 pool.on('connect', () => {
   console.log("Connected to Neon");
+});
+
+pool.on("error", (err) => {
+  console.error("Unexpected PG error", err);
 });
 
 module.exports = pool;
