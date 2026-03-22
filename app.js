@@ -7,18 +7,6 @@ const routes = require('./routes');
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
 
-const client = new Client({
-  connectionString: process.env.DATABASE_URL,
-  ssl: { rejectUnauthorized: false }
-});
-
-client.connect()
-  .then(() => {
-    console.log("Connected to Neon");
-    app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
-  })
-  .catch(err => console.error("DB connection error:", err));
-
 
 app.use(cookieParser());
 app.use(cors({
