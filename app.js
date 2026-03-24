@@ -6,10 +6,7 @@ const cookieParser = require("cookie-parser");
 const app = express();
 
 app.use(cors({
-  origin: [
-    "https://client-o8z1bradv-majddiab33-9273s-projects.vercel.app",
-    "http://localhost:5173"
-  ],
+  origin: true, 
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
 }));
