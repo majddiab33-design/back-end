@@ -7,6 +7,10 @@ const Trips = require('./trips');
 const LogIn = require('./LogIn');
 const authRoutes = require("./auth");
 
+router.use("/connect", (req, res) => {
+    res.send("connected");
+});
+
 router.use("/auth", authRoutes);
 router.use('/restaurant', Restaurant);
 router.use('/attraction', Attractions);
