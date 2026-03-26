@@ -8,7 +8,7 @@ const LogIn = require('./LogIn');
 const authRoutes = require("./auth");
 
 router.use("/connect", (req, res) => {
-    res.send("connected");
+    res.json("connected");
 });
 
 router.use("/auth", authRoutes);
